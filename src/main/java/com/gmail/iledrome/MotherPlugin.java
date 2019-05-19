@@ -1,6 +1,8 @@
 package com.gmail.iledrome;
 
 import com.gmail.iledrome.user.UserManager;
+import com.gmail.iledrome.user.homes.commands.HomesCommand;
+import com.gmail.iledrome.user.UserListener;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class MotherPlugin extends JavaPlugin {
@@ -12,6 +14,9 @@ public class MotherPlugin extends JavaPlugin {
     public void onEnable() {
         instance = this;
         this.userManager = new UserManager();
+
+        this.getCommand("homes").setExecutor(new HomesCommand());
+        new UserListener();
     }
 
     @Override
