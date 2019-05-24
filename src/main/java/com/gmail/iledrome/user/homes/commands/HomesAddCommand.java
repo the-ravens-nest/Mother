@@ -15,17 +15,22 @@ public class HomesAddCommand implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] arguments) {
+
+        if (arguments.length == 0) {
+            return false;
+        }
+
         User user = instance.getUserManager().getUser((Player) sender);
 
         if (user.getHomesManager().doesHomeExist(arguments[0])) {
-            sender.sendMessage(ChatColor.AQUA + "Homes " + ChatColor.DARK_GRAY + "> " + ChatColor.GRAY + "A home with the name " + ChatColor.GOLD + arguments[0] + ChatColor.GRAY + " already exists.");
+            sender.sendMessage(ChatColor.DARK_PURPLE + "The Ravens Nest " + ChatColor.DARK_GRAY + "> " + ChatColor.GRAY + "A home with the name " + ChatColor.GOLD + arguments[0] + ChatColor.GRAY + " already exists.");
             return false;
         }
 
         if (user.getHomesManager().addHome(new Home(arguments[0], user.getPlayer().getLocation()))) {
-            sender.sendMessage(ChatColor.AQUA + "Homes " + ChatColor.DARK_GRAY + "> " + ChatColor.GRAY + "The home " + ChatColor.GOLD + arguments[0] + ChatColor.GRAY + " has successfully been added.");
+            sender.sendMessage(ChatColor.DARK_PURPLE + "The Ravens Nest " + ChatColor.DARK_GRAY + "> " + ChatColor.GRAY + "The home " + ChatColor.GOLD + arguments[0] + ChatColor.GRAY + " has successfully been added.");
         } else {
-            sender.sendMessage(ChatColor.AQUA + "Homes " + ChatColor.DARK_GRAY + "> " + ChatColor.GRAY + "The home " + ChatColor.GOLD + arguments[0] + ChatColor.GRAY + " could not be added. Please contact the administrator.");
+            sender.sendMessage(ChatColor.DARK_PURPLE + "The Ravens Nest " + ChatColor.DARK_GRAY + "> " + ChatColor.GRAY + "The home " + ChatColor.GOLD + arguments[0] + ChatColor.GRAY + " could not be added. Please contact the administrator.");
             return false;
         }
 

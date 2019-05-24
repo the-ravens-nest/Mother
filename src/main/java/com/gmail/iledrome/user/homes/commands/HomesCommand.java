@@ -29,34 +29,35 @@ public class HomesCommand implements CommandExecutor {
             return false;
         }
 
-        if (arguments.length == 0) {
-            sender.sendMessage(ChatColor.DARK_GRAY + "" + ChatColor.STRIKETHROUGH + "-----" + ChatColor.AQUA + " Homes Help " + ChatColor.DARK_GRAY + "" + ChatColor.STRIKETHROUGH + "-----");
-            sender.sendMessage(ChatColor.GOLD + "/homes list");
-            sender.sendMessage(ChatColor.GOLD + "/homes add <name>");
-            sender.sendMessage(ChatColor.GOLD + "/homes remove <name>");
-            sender.sendMessage(ChatColor.GOLD + "/homes update <name>");
-            sender.sendMessage(ChatColor.DARK_GRAY + "" + ChatColor.STRIKETHROUGH + "-----" + ChatColor.AQUA + " Homes Help " + ChatColor.DARK_GRAY + "" + ChatColor.STRIKETHROUGH + "-----");
-            return false;
-        }
+        if (command.getName().equalsIgnoreCase("homes")) {
+            if (arguments.length == 0) {
+                sender.sendMessage(ChatColor.DARK_GRAY + "" + ChatColor.STRIKETHROUGH + "-----" + ChatColor.AQUA + " Homes Help " + ChatColor.DARK_GRAY + "" + ChatColor.STRIKETHROUGH + "-----");
+                sender.sendMessage(ChatColor.GOLD + "/homes list");
+                sender.sendMessage(ChatColor.GOLD + "/homes add <name>");
+                sender.sendMessage(ChatColor.GOLD + "/homes remove <name>");
+                sender.sendMessage(ChatColor.GOLD + "/homes update <name>");
+                sender.sendMessage(ChatColor.DARK_GRAY + "" + ChatColor.STRIKETHROUGH + "-----" + ChatColor.AQUA + " Homes Help " + ChatColor.DARK_GRAY + "" + ChatColor.STRIKETHROUGH + "-----");
+                return false;
+            }
 
-        if (arguments.length >= 1) {
-            switch (arguments[0].toLowerCase()) {
-                case "list":
-                    this.homesListCommand.onCommand(sender, command, label, Arrays.copyOfRange(arguments, 1, arguments.length));
-                    break;
-                case "add":
-                    this.homesAddCommand.onCommand(sender, command, label, Arrays.copyOfRange(arguments, 1, arguments.length));
-                    break;
-                case "remove":
-                    this.homesRemoveCommand.onCommand(sender, command, label, Arrays.copyOfRange(arguments, 1, arguments.length));
-                    break;
-                case "update":
-                    this.homesUpdateCommand.onCommand(sender, command, label, Arrays.copyOfRange(arguments, 1, arguments.length));
-                default:
-                    break;
+            if (arguments.length >= 1) {
+                switch (arguments[0].toLowerCase()) {
+                    case "list":
+                        this.homesListCommand.onCommand(sender, command, label, Arrays.copyOfRange(arguments, 1, arguments.length));
+                        break;
+                    case "add":
+                        this.homesAddCommand.onCommand(sender, command, label, Arrays.copyOfRange(arguments, 1, arguments.length));
+                        break;
+                    case "remove":
+                        this.homesRemoveCommand.onCommand(sender, command, label, Arrays.copyOfRange(arguments, 1, arguments.length));
+                        break;
+                    case "update":
+                        this.homesUpdateCommand.onCommand(sender, command, label, Arrays.copyOfRange(arguments, 1, arguments.length));
+                    default:
+                        break;
+                }
             }
         }
-
         return true;
     }
 }

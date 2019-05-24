@@ -56,6 +56,11 @@ public class HomesManager {
     }
 
     public void save() {
+
+        if (this.homes.isEmpty()) {
+            return;
+        }
+
         this.homes.forEach(home -> {
             this.configurationFile.getConfiguration().set("homes." + home.getName() + ".world", home.getLocation().getWorld().getName());
             this.configurationFile.getConfiguration().set("homes." + home.getName() + ".x", home.getLocation().getBlockX());

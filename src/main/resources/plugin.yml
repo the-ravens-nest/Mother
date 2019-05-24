@@ -7,3 +7,5 @@ version: 1.0
 commands:
   homes:
     description: Homes Command!
+  pin:
+    description: Pin Command!

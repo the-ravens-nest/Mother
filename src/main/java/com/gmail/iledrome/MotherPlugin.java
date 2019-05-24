@@ -1,8 +1,10 @@
 package com.gmail.iledrome;
 
+import com.gmail.iledrome.user.UserListener;
 import com.gmail.iledrome.user.UserManager;
 import com.gmail.iledrome.user.homes.commands.HomesCommand;
-import com.gmail.iledrome.user.UserListener;
+import com.gmail.iledrome.user.pin.PinListener;
+import com.gmail.iledrome.user.pin.commands.PinCommand;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class MotherPlugin extends JavaPlugin {
@@ -16,7 +18,9 @@ public class MotherPlugin extends JavaPlugin {
         this.userManager = new UserManager();
 
         this.getCommand("homes").setExecutor(new HomesCommand());
+        this.getCommand("pin").setExecutor(new PinCommand());
         new UserListener();
+        new PinListener();
     }
 
     @Override

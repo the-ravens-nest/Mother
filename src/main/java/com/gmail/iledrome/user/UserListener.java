@@ -1,7 +1,6 @@
 package com.gmail.iledrome.user;
 
 import com.gmail.iledrome.MotherPlugin;
-import com.gmail.iledrome.user.User;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
